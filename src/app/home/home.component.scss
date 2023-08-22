@@ -1,5 +1,5 @@
 .ll-hero {
-  background: linear-gradient(180deg, #73b58d 40%, rgba(115, 181, 141, 0) 100%);
+  background: linear-gradient(180deg, #03738c 0%, rgba(3, 88, 140, 0.7) 100%);
   padding: 200px 0 100px;
   position: relative;
   .container {
@@ -120,7 +120,7 @@
 // Starter
 .ll-starter {
   &__card {
-    background: linear-gradient(180deg, #73b58d 0%, rgba(115, 181, 141, 0.7) 100%);
+    background: linear-gradient(180deg, #03738c 0%, rgba(3, 88, 140, 0.7) 100%);
   }
 }
 @media (min-width: 576px) {

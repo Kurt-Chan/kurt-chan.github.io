@@ -20,10 +20,21 @@ module.exports = {
       xl: '1200px',
       xxl: '1440px'
     },
+    // colors: {
+    //   primary: '#58B57D',
+    //   accent: '#EE5E36',
+    //   warn: '#FDE300',
+    //   black: colors.black,
+    //   white: colors.white,
+    //   gray: colors.coolGray,
+    //   red: colors.red,
+    //   blue: colors.blue,
+    //   yellow: colors.amber
+    // }
     colors: {
-      primary: '#58B57D',
-      accent: '#EE5E36',
-      warn: '#FDE300',
+      primary: '#03738C',
+      accent: '#D93D59',
+      warn: '#D9933D',
       black: colors.black,
       white: colors.white,
       gray: colors.coolGray,
@@ -33,7 +44,7 @@ module.exports = {
     }
   },
   variants: {
-    extend: { }
+    extend: {}
   },
   plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')]
 };

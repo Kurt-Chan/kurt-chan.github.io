@@ -29,8 +29,6 @@ export class ProductDetailsComponent implements OnInit {
   addToCart() {
     this.product.quantity = this.quantity;
     this.dataService.addToCart(this.product);
-    // window.alert('Item added to cart!');
-
     this.openSnackBar('Item added to cart!', 'Show Cart');
   }
 
@@ -41,7 +39,7 @@ export class ProductDetailsComponent implements OnInit {
 
     // Redirect to the cart page
     snackBarRef.onAction().subscribe(() => {
-      console.log('snack bar action triggered!');
+      console.log('Snack bar action triggered!');
       this.router.navigate(['']);
     });
 

@@ -10,6 +10,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 export class ProductDetailsComponent implements OnInit {
   product: any;
   cart: any;
+  quantity: number = 1;
 
   constructor(private activatedRoute: ActivatedRoute, private dataService: DataServiceService) {}
 
@@ -22,7 +23,8 @@ export class ProductDetailsComponent implements OnInit {
   }
 
   addToCart() {
-    this.product.quantity = 1;
+    this.product.quantity = this.quantity;
     this.dataService.addToCart(this.product);
+    window.alert('Item added to cart!');
   }
 }

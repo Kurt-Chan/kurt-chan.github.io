@@ -6,6 +6,7 @@ import { productsDB } from '../shared/data/products';
 })
 export class DataServiceService {
   products: any;
+  cart: any[] = [];
 
   constructor() {}
 
@@ -16,5 +17,17 @@ export class DataServiceService {
   getProductById(id: any) {
     this.products = productsDB.FakeProducts.find(product => product.id === id);
     return this.products;
+  }
+
+  addToCart(product: any) {
+    this.cart.push(product);
+    let itemCart = JSON.stringify(this.cart);
+    localStorage.setItem('Cart', itemCart);
+    return itemCart;
+  }
+
+  showCart() {
+    let itemCart = localStorage.getItem('Cart');
+    return JSON.parse(itemCart);
   }
 }

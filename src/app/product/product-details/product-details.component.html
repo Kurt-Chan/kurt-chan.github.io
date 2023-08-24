@@ -94,7 +94,9 @@
             <label for="">Quantity: </label>
             <input type="number" name="" id="" class="py-1 text-sm mb-5 font-light" />
             <button mat-flat-button class="py-3 px-20 text-xl mb-5 font-bold" color="accent">Buy now</button>
-            <button mat-stroked-button class="py-3 px-20 text-lg font-bold text-gray-700">Add to cart</button>
+            <button mat-stroked-button class="py-3 px-20 text-lg font-bold text-gray-700" (click)="addToCart()">
+              Add to cart
+            </button>
           </div>
         </div>
         <!-- <div class="border mt-5 px-5 py-10 text-center">

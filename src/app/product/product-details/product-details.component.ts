@@ -9,6 +9,7 @@ import { DataServiceService } from 'src/app/services/data-service.service';
 })
 export class ProductDetailsComponent implements OnInit {
   product: any;
+  cart: any;
 
   constructor(private activatedRoute: ActivatedRoute, private dataService: DataServiceService) {}
 
@@ -16,7 +17,11 @@ export class ProductDetailsComponent implements OnInit {
     const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
     this.product = this.dataService.getProductById(id);
     console.log('Retrieved Product:', this.product);
+
+    console.log(this.dataService.showCart());
   }
 
-  addToCart() {}
+  addToCart() {
+    this.dataService.addToCart(this.product);
+  }
 }

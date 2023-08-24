@@ -24,8 +24,6 @@ export class ProductDetailsComponent implements OnInit {
     const id = parseInt(this.activatedRoute.snapshot.paramMap.get('id'), 10);
     this.product = this.dataService.getProductById(id);
     console.log('Retrieved Product:', this.product);
-
-    console.log(this.dataService.showCart());
   }
 
   addToCart() {
@@ -41,9 +39,12 @@ export class ProductDetailsComponent implements OnInit {
       duration: 2000
     });
 
+    // Redirect to the cart page
     snackBarRef.onAction().subscribe(() => {
       console.log('snack bar action triggered!');
       this.router.navigate(['']);
     });
+
+    console.log(this.dataService.showCart());
   }
 }

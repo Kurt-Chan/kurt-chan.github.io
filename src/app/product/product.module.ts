@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { NgParticlesModule } from 'ng-particles';
 import { ProductRoutingModule } from './product-routing.module';
@@ -19,7 +20,8 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     MatExpansionModule,
     NgParticlesModule,
     NgxSkeletonLoaderModule,
-    FormsModule
+    FormsModule,
+    MatSnackBarModule
   ]
 })
 export class ProductModule {}

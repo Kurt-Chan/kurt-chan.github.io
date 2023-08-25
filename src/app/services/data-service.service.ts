@@ -26,8 +26,36 @@ export class DataServiceService {
     return itemCart;
   }
 
+  deleteItem(id: any) {
+    this.cart = this.cart.filter(item => item.id !== id);
+    let itemCart = JSON.stringify(this.cart);
+    localStorage.setItem('Cart', itemCart);
+    return itemCart;
+  }
+
   showCart() {
     let itemCart = localStorage.getItem('Cart');
     return JSON.parse(itemCart);
+  }
+
+  updateQuantity(id: any, quantity: number) {
+    let itemCart = JSON.parse(localStorage.getItem('Cart'));
+    let itemProd = itemCart.find(item => item.id === id);
+
+    if (itemProd) {
+      itemProd.quantity = quantity;
+      itemProd.totalPrice = itemProd.price * quantity;
+
+      // Update the item within the array
+      const index = itemCart.indexOf(itemProd);
+      if (index !== -1) {
+        itemCart[index] = itemProd;
+
+        // Save the updated cart array back to local storage
+        localStorage.setItem('Cart', JSON.stringify(itemCart));
+
+        return itemProd;
+      }
+    }
   }
 }

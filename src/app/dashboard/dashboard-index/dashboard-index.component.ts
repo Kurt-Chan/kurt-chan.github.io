@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, Output, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'll-dashboard-index',
@@ -7,50 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardIndexComponent implements OnInit {
   orders = [];
-  constructor() {}
+
+  constructor(private dataService: DataServiceService) {}
 
   ngOnInit(): void {
-    this.orders = [
-      {
-        id: 'e5dcdfsf',
-        orderBy: 'Dean Lynch',
-        productId: 'cdfsfe5d',
-        created: '25.05.2021, 10:00',
-        status: 'complated',
-        price: 2145.0
-      },
-      {
-        id: 'e5dcdfsf',
-        orderBy: 'Lynch Dean',
-        productId: 'cdfsfe5d',
-        created: '25.05.2021, 10:00',
-        status: 'pending',
-        price: 2145.0
-      },
-      {
-        id: 'e5dcdfsf',
-        orderBy: 'Lynch Dean',
-        productId: 'cdfsfe5d',
-        created: '25.05.2021, 10:00',
-        status: 'rejected',
-        price: 2145.0
-      },
-      {
-        id: 'e5dcdfsf',
-        orderBy: 'Dean Lynch',
-        productId: 'cdfsfe5d',
-        created: '25.05.2021, 10:00',
-        status: 'initialized',
-        price: 2145.0
-      },
-      {
-        id: 'e5dcdfsf',
-        orderBy: 'Dean Lynch',
-        productId: 'cdfsfe5d',
-        created: '25.05.2021, 10:00',
-        status: 'complated',
-        price: 2145.0
-      }
-    ];
+    this.orders = this.dataService.showCart();
+
+    console.log(this.orders);
+  }
+
+  deleteItem(id: any) {
+    console.log(this.dataService.deleteItem(id));
+  }
+  updateQuantity(id: any, order: any, newQuantity: number) {
+    order.quantity = newQuantity;
+    order.totalPrice = order.price * order.quantity;
+    // console.log(order);
+
+    console.log(this.dataService.updateQuantity(order.id, newQuantity));
+  }
+
+  calculateTotal(): number {
+    let total = 0;
+    for (const order of this.orders) {
+      total += order.totalPrice;
+    }
+    return total;
   }
 }

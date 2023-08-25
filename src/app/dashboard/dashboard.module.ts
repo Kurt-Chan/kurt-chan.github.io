@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
+import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
@@ -19,6 +19,6 @@ import { DashboardOrderComponent } from './dashboard-order/dashboard-order.compo
     DashboardProfileComponent,
     DashboardOrderComponent
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule, MatMenuModule]
+  imports: [CommonModule, DashboardRoutingModule, SharedModule, MatMenuModule, FormsModule]
 })
 export class DashboardModule {}

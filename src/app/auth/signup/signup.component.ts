@@ -30,6 +30,17 @@ export class SignupComponent implements OnInit {
     'Singapore'
   ];
 
+  CreditCard: any = [
+    {
+      name: 'MasterCard',
+      icon: './../../../assets/images/58482354cef1014c0b5e49c0.png'
+    },
+    {
+      name: 'Visa',
+      icon: './../../../assets/images/Visa-Card-Logo-PNG-Isolated-Transparent-HD-Photo.png'
+    }
+  ];
+
   constructor() {}
 
   ngOnInit(): void {}

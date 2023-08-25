@@ -31,6 +31,7 @@ export class ProductDetailsComponent implements OnInit {
     this.product.totalPrice = this.product.price * this.quantity;
 
     this.dataService.addToCart(this.product);
+    this.quantity = 1;
     this.openSnackBar('Item added to cart!', 'Show Cart');
   }
 

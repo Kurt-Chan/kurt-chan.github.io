@@ -26,6 +26,10 @@ export class DashboardIndexComponent implements OnInit {
     order.totalPrice = order.price * order.quantity;
     // console.log(order);
 
+    if (order.quantity === 0) {
+      this.deleteItem(id);
+    }
+
     console.log(this.dataService.updateQuantity(order.id, newQuantity));
   }
 

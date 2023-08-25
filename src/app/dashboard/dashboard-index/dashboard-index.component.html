@@ -126,7 +126,12 @@
             </button>
           </td>
           <td>
-            <button mat-flat-button class="py-2 px-5 text-xl mb-5 font-bold" color="accent">
+            <button
+              mat-flat-button
+              class="py-2 px-5 text-xl mb-5 font-bold"
+              color="accent"
+              [routerLink]="['/auth/signup']"
+            >
               <mat-icon>check_circle</mat-icon> Checkout
             </button>
           </td>

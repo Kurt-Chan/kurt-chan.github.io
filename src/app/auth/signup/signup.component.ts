@@ -6,10 +6,31 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
+  City: any = [
+    'United States',
+    'Canada',
+    'United Kingdom',
+    'Australia',
+    'Germany',
+    'France',
+    'Italy',
+    'Spain',
+    'Philippines',
+    'Japan',
+    'China',
+    'India',
+    'Brazil',
+    'Mexico',
+    'South Korea',
+    'Russia',
+    'Netherlands',
+    'Switzerland',
+    'Sweden',
+    'Norway',
+    'Singapore'
+  ];
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

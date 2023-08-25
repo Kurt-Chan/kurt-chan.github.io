@@ -14,7 +14,7 @@
             type="text"
             placeholder="I am looking for ..."
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
-            required
+            (input)="onSearchChange($event.target.value)"
           />
           <button class="bg-primary w-24 rounded-r-md"><mat-icon class="leading-8">search</mat-icon></button>
         </div>

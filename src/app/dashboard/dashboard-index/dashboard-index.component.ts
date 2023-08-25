@@ -19,6 +19,7 @@ export class DashboardIndexComponent implements OnInit {
 
   deleteItem(id: any) {
     console.log(this.dataService.deleteItem(id));
+    this.ngOnInit();
   }
   updateQuantity(id: any, order: any, newQuantity: number) {
     order.quantity = newQuantity;

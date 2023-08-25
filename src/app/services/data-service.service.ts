@@ -8,7 +8,12 @@ export class DataServiceService {
   products: any;
   cart: any[] = [];
 
-  constructor() {}
+  constructor() {
+    const cartData = JSON.parse(localStorage.getItem('Cart'));
+    if (cartData) {
+      this.cart = cartData;
+    }
+  }
 
   getAllProducts() {
     return (this.products = productsDB.FakeProducts);

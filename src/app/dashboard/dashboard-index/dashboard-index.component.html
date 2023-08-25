@@ -24,14 +24,14 @@
     <table class="order-table table-auto ltMd:responsive">
       <thead>
         <tr class="border text-left">
-          <th>
+          <!-- <th>
             <span class="text-gray-800">Id</span>
-          </th>
+          </th> -->
           <th>
             <span class="text-gray-800">Product</span>
           </th>
           <th>
-            <span class="text-gray-800">Price</span>
+            <span class="text-gray-800">Unit Price</span>
           </th>
 
           <th>
@@ -49,18 +49,18 @@
           <th class="text-right"></th>
         </tr>
       </thead>
-      <tbody *ngIf="orders.length === 0">
+      <!-- <tbody *ngIf="orders.length === null">
         <tr>
           <td colspan="2"></td>
           <td colspan="2">Your cart is empty</td>
           <td colspan="2"></td>
         </tr>
-      </tbody>
-      <tbody *ngIf="orders.length != 0">
+      </tbody> -->
+      <tbody>
         <tr *ngFor="let order of orders" class="border">
-          <td>
+          <!-- <td>
             <a class="text-primary" href="/">{{ order?.id }}</a>
-          </td>
+          </td> -->
           <td>
             {{ order?.title | titlecase }}
           </td>
@@ -110,7 +110,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"></td>
+          <td colspan="2"></td>
           <td class="text-right">
             <h3>TOTAL:</h3>
           </td>
@@ -119,7 +119,7 @@
           </td>
         </tr>
         <tr>
-          <td colspan="3"></td>
+          <td colspan="2"></td>
           <td class="text-right">
             <button mat-stroked-button class="py-2 px-5 text-xl mb-5 font-bold" (click)="clearCart()">
               <mat-icon>clear</mat-icon> Clear Cart

@@ -13,7 +13,6 @@ export class DashboardIndexComponent implements OnInit {
 
   ngOnInit(): void {
     this.orders = this.dataService.showCart();
-
     console.log(this.orders);
   }
 
@@ -35,6 +34,7 @@ export class DashboardIndexComponent implements OnInit {
 
   clearCart() {
     this.dataService.clearCart();
+    this.orders = null;
     this.ngOnInit();
   }
 

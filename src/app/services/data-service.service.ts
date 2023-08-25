@@ -35,7 +35,8 @@ export class DataServiceService {
     this.cart = this.cart.filter(item => item.id !== id);
     let itemCart = JSON.stringify(this.cart);
     localStorage.setItem('Cart', itemCart);
-    return itemCart;
+
+    return JSON.parse(itemCart);
   }
 
   showCart() {

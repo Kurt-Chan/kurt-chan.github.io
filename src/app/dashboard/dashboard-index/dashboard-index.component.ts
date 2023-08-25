@@ -29,11 +29,21 @@ export class DashboardIndexComponent implements OnInit {
     console.log(this.dataService.updateQuantity(order.id, newQuantity));
   }
 
+  clearCart() {
+    this.dataService.clearCart();
+    this.ngOnInit();
+  }
+
   calculateTotal(): number {
     let total = 0;
-    for (const order of this.orders) {
-      total += order.totalPrice;
+
+    if (this.orders != null) {
+      for (const order of this.orders) {
+        total += order.totalPrice;
+      }
+      return total;
     }
-    return total;
+
+    return 0;
   }
 }

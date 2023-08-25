@@ -18,6 +18,6 @@ export class DashboardLayoutComponent implements OnInit {
     });
   }
   onLogout(): void {
-    this.router.navigate(['auth/login']);
+    this.router.navigate(['products']);
   }
 }

@@ -63,4 +63,9 @@ export class DataServiceService {
       }
     }
   }
+
+  clearCart() {
+    localStorage.removeItem('Cart');
+    this.cart = [];
+  }
 }

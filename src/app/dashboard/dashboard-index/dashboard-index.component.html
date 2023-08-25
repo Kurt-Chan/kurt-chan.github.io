@@ -37,6 +37,11 @@
           <th>
             <span class="text-gray-800">Quantity</span>
           </th>
+
+          <th>
+            <span class="text-gray-800">Total Price</span>
+          </th>
+
           <!-- 
           <th>
             <span class="text-gray-800">Status</span>
@@ -53,7 +58,7 @@
             {{ order?.title | titlecase }}
           </td>
           <td>
-            <span>${{ order?.totalPrice }}</span>
+            <span>${{ order?.price }}</span>
           </td>
           <td>
             <!-- <span> {{ order?.quantity }} </span> -->
@@ -63,6 +68,9 @@
               placeholder="Enter Quantity"
               (ngModelChange)="updateQuantity(order?.id, order, $event)"
             />
+          </td>
+          <td>
+            <span>${{ order?.totalPrice | number: '1.2-2' }}</span>
           </td>
           <!-- <td>
             <div
@@ -96,14 +104,24 @@
         </tr>
         <tr>
           <td colspan="3"></td>
+          <td class="text-right">
+            <h3>TOTAL:</h3>
+          </td>
           <td>
-            <h3>TOTAL: ${{ calculateTotal() | number: '1.2-2' }}</h3>
+            <h3>${{ calculateTotal() | number: '1.2-2' }}</h3>
           </td>
         </tr>
         <tr>
-          <td colspan="4"></td>
+          <td colspan="3"></td>
+          <td class="text-right">
+            <button mat-stroked-button class="py-2 px-5 text-xl mb-5 font-bold" (click)="clearCart()">
+              <mat-icon>clear</mat-icon> Clear Cart
+            </button>
+          </td>
           <td>
-            <button mat-flat-button class="py-2 px-5 text-xl mb-5 font-bold" color="accent">Checkout</button>
+            <button mat-flat-button class="py-2 px-5 text-xl mb-5 font-bold" color="accent">
+              <mat-icon>check_circle</mat-icon> Checkout
+            </button>
           </td>
         </tr>
       </tbody>

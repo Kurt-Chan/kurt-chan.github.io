@@ -21,7 +21,7 @@ export const menuList: Menu[] = [
     icon: 'contact_mail'
   },
   {
-    path: '/cart',
+    path: '/dashboard',
     name: 'My Cart',
     icon: 'shopping_cart'
   }

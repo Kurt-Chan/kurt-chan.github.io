@@ -43,6 +43,6 @@ export class ProductDetailsComponent implements OnInit {
       this.router.navigate(['']);
     });
 
-    console.log(this.dataService.showCart());
+    console.log('Cart: ', this.dataService.showCart());
   }
 }

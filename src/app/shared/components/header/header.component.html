@@ -1,4 +1,4 @@
-<header class="ll_header" [class.top-fixed]="topFixed" [ngClass]="{ 'bg-gray-50 shadow': topFixed && isScrolled }">
+<header class="ll_header" [class.top-fixed]="topFixed" [ngClass]="{ 'bg-gray-100 shadow': topFixed && isScrolled }">
   <div class="container">
     <div class="flex items-center">
       <div *ngIf="cartItems != null">
@@ -9,7 +9,7 @@
               <a
                 mat-button
                 [routerLink]="[menu.path]"
-                routerLinkActive="bg-accent text-white"
+                routerLinkActive="bg-gray-300 text-black"
                 class="text-lg font-bold py-2 px-5"
               >
                 <mat-icon>{{ menu.icon }}</mat-icon>

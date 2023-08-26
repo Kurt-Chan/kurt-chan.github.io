@@ -1,36 +1,41 @@
 <!-- USER -->
+<div class="header">
+  <img src="./../../assets/images/logo.png" width="100" />
+  <h1>Official Receipt</h1>
+</div>
 <table>
-  <thead>
-    <tr>
-      <td>
-        <div class="header-space">&nbsp;</div>
-      </td>
-    </tr>
-  </thead>
   <tbody *ngFor="let user of user">
     <tr>
       <td colspan="3">
-        <h1>User Information</h1>
+        <h2>User Information</h2>
       </td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
     </tr>
     <tr>
       <td colspan="2">
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-2">
-              <h4>Name:</h4>
+              <h5>Name:</h5>
             </div>
             <div class="mt-2 mr-8">
-              <label class="text-xl font-medium">{{ user.firstName }} {{ user.lastName }} </label>
+              <label class="text-2xl font-medium">{{ user.firstName }} {{ user.lastName }} </label>
             </div>
           </div>
         </div>
       </td>
+    </tr>
+    <tr>
       <td>
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-2">
-              <h4>Email:</h4>
+              <h5>Email:</h5>
             </div>
             <div class="mt-2 mr-8">
               <label class="text-xl font-medium">{{ user.emailAddress }}</label>
@@ -42,7 +47,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-2">
-              <h4>Contact:</h4>
+              <h5>Contact:</h5>
             </div>
             <div class="mt-2">
               <label class="text-xl font-medium">{{ user.contact }}</label>
@@ -56,7 +61,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
-              <h4>Address:</h4>
+              <h5>Address:</h5>
             </div>
             <div class="mt-1">
               <label class="text-xl font-medium">{{ user.homeAddress }}, {{ user.city }}, {{ user.country }}</label>
@@ -66,11 +71,11 @@
       </td>
     </tr>
     <tr>
-      <td colspan="2">
+      <td>
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
-              <h4>Zip Code:</h4>
+              <h5>Zip Code:</h5>
             </div>
             <div class="mt-1">
               <label class="text-xl font-medium">{{ user.zipCode }}</label>
@@ -82,7 +87,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
-              <h4>Credit Card:</h4>
+              <h5>Credit Card:</h5>
             </div>
             <div class="mt-1 mr-2">
               <label class="text-xl font-medium">{{ user.creditCardType }}</label>
@@ -94,7 +99,7 @@
         <div class="content">
           <div>
             <div class="mr-2">
-              <h4>Credit Card No:</h4>
+              <h5>Credit Card No:</h5>
             </div>
             <div class="mt-1">
               <label class="text-xl font-medium">{{ user.creditCard }}</label>
@@ -106,23 +111,30 @@
   </tbody>
   <tfoot>
     <tr>
-      <td>
-        <div class="footer-space">&nbsp;</div>
-      </td>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td colspan="3"></td>
+    </tr>
+    <tr>
+      <td colspan="3"><hr /></td>
     </tr>
   </tfoot>
 </table>
 
 <!-- CART -->
-<h1>Cart Details</h1>
+<h2>Cart Details</h2>
 <table>
   <thead>
+    <tr>
+      <td colspan="5"><hr /></td>
+    </tr>
     <tr>
       <td>
         <!-- <div class="header-space">&nbsp;</div> -->
         ID
       </td>
-      <td>Name</td>
+      <td>Item</td>
       <td>Unit Price</td>
       <td>Quantity</td>
       <td>Total Price</td>
@@ -187,22 +199,18 @@
       <td></td>
     </tr>
   </tbody>
-  <tfoot>
+  <tfoot class="mt-2">
     <tr>
-      <td>
-        <div class="footer-space">&nbsp;</div>
+      <td colspan="5">
+        <div class="footer">
+          <p>
+            Order ID: 2389948812 <br />
+            Transaction ID: 9948213244 <br />
+            Invoice: KC-INV-48832
+          </p>
+          <img src="./../../assets/images/logo.png" width="100" />
+        </div>
       </td>
     </tr>
   </tfoot>
 </table>
-
-<div class="header">
-  <h1>CHECKOUT FORM</h1>
-</div>
-<div class="footer">
-  <p>
-    Order ID: 2389948812 <br />
-    Transaction ID: 9948213244 <br />
-    Invoice: KC-INV-48832
-  </p>
-</div>

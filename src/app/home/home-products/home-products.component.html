@@ -20,7 +20,7 @@
             <div class="flex-grow pl-3">
               <!-- <h4 class="ll-product__creator">{{ product?.created_by?.name }}</h4> -->
               <h2 class="ll-product__name">
-                <a [routerLink]="['/products', product.id]">{{ product.title }}</a>
+                <a [routerLink]="['/products', product.id]" class="hover:text-warn">{{ product.title }}</a>
               </h2>
               <div class="flex justify-between mt-5">
                 <!-- <div class="ll-product__price-label">Price:</div> -->

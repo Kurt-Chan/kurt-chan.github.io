@@ -11,7 +11,10 @@ import { Data } from '@angular/router';
 export class ProductListComponent implements OnInit {
   isLoaded: boolean;
   advanceSearchExpanded: boolean = false;
+  prodName: string;
+  filteredProducts: any[] = [];
   products = [];
+
   constructor(private dataService: DataServiceService) {}
 
   ngOnInit(): void {
@@ -23,5 +26,21 @@ export class ProductListComponent implements OnInit {
 
   onSearchChange(searchValue: string): void {
     console.log(searchValue);
+
+    if (searchValue !== '') {
+      this.filteredProducts = this.dataService.searchProduct(searchValue);
+      console.log(this.filteredProducts);
+    } else {
+      this.filteredProducts = [];
+    }
+  }
+
+  searchProducts() {
+    if (this.prodName !== '') {
+      this.filteredProducts = this.dataService.searchProduct(this.prodName);
+      console.log(this.filteredProducts);
+    } else {
+      this.filteredProducts = [];
+    }
   }
 }

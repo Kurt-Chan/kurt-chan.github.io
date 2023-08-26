@@ -24,13 +24,10 @@ export class DataServiceService {
     return this.products;
   }
 
-  // searchProduct(name: any) {
-  //   let productArray: any[] = [];
-  //   let product = productsDB.FakeProducts.find(product => product.title === name);
-  //   productArray.push(product);
-
-  //   return productArray;
-  // }
+  searchProduct(name: any) {
+    this.products = productsDB.FakeProducts.filter(product => product.title.toLowerCase().includes(name));
+    return this.products;
+  }
 
   addToCart(product: any) {
     this.cart.push(product);

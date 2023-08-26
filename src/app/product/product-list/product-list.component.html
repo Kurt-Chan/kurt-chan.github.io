@@ -16,7 +16,15 @@
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
             (input)="onSearchChange($event.target.value)"
           />
-          <button class="bg-primary w-24 rounded-r-md"><mat-icon class="leading-8">search</mat-icon></button>
+          <!-- <input
+            type="text"
+            placeholder="I am looking for ..."
+            class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
+            [(ngModel)]="prodName"
+          /> -->
+          <button class="bg-primary w-24 rounded-r-md" (click)="searchProducts()">
+            <mat-icon class="leading-8">search</mat-icon>
+          </button>
         </div>
       </div>
       <mat-expansion-panel [expanded]="advanceSearchExpanded">
@@ -115,10 +123,100 @@
     </div>
   </div>
 </div>
-<div class="ll-products-area mb-24">
+
+<div class="ll-products-area mb-24" *ngIf="filteredProducts.length != 0">
   <div class="container">
     <h2 class="ll-section-head__heaidng text-center mb-5">ALL PRODUCTS</h2>
     <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
+      <!--  FILTERED PRODUCTS -->
+      <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">
+        <mat-card class="ll-product">
+          <img
+            mat-card-image
+            [src]="product.image"
+            alt="{{ product.title }}"
+            style="width: 50%; margin: 10px 60px 15px"
+          />
+          <mat-card-content class="flex">
+            <div class="flex-grow pl-3">
+              <h4 class="ll-product__creator">
+                {{ product.category }}
+              </h4>
+              <h2 class="ll-product__name">
+                <a [routerLink]="['/products', product.id]">{{ product.title }}</a>
+              </h2>
+              <div class="flex justify-between mt-2">
+                <div class="ll-product__price text-accent font-bold">${{ product.price }}</div>
+                <div class="ll-product__price-label">{{ product.rating.count }} sold</div>
+              </div>
+            </div>
+          </mat-card-content>
+          <mat-card-actions class="ll-product__action flex justify-between">
+            <div class="flex-1 text-center flex items-center justify-center">
+              <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
+            </div>
+            <div class="flex-1 text-center">
+              <a [routerLink]="['/products', product.id]" mat-raised-button color="warn" class="px-4"
+                >Product Details</a
+              >
+            </div>
+          </mat-card-actions>
+        </mat-card>
+      </div>
+    </div>
+    <div *ngIf="!isLoaded">
+      <ngx-skeleton-loader
+        count="9"
+        appearance="circle"
+        [theme]="{
+          'border-radius': '5px',
+          height: '280px',
+          width: 'calc(33% - 10px)'
+        }"
+      ></ngx-skeleton-loader>
+    </div>
+  </div>
+</div>
+
+<div class="ll-products-area mb-24" *ngIf="filteredProducts.length == 0">
+  <div class="container">
+    <h2 class="ll-section-head__heaidng text-center mb-5">ALL PRODUCTS</h2>
+    <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
+      <!--  FILTERED PRODUCTS -->
+      <!-- <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">
+          <mat-card class="ll-product">
+            <img
+              mat-card-image
+              [src]="product.image"
+              alt="{{ product.title }}"
+              style="width: 50%; margin: 10px 60px 15px"
+            />
+            <mat-card-content class="flex">
+              <div class="flex-grow pl-3">
+                <h4 class="ll-product__creator">
+                  {{ product.category }}
+                </h4>
+                <h2 class="ll-product__name">
+                  <a [routerLink]="['/products', product.id]">{{ product.title }}</a>
+                </h2>
+                <div class="flex justify-between mt-2">
+                  <div class="ll-product__price text-accent font-bold">${{ product.price }}</div>
+                  <div class="ll-product__price-label">{{ product.rating.count }} sold</div>
+                </div>
+              </div>
+            </mat-card-content>
+            <mat-card-actions class="ll-product__action flex justify-between">
+              <div class="flex-1 text-center flex items-center justify-center">
+                <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
+              </div>
+              <div class="flex-1 text-center">
+                <a [routerLink]="['/products', product.id]" mat-raised-button color="warn" class="px-4"
+                  >Product Details</a
+                >
+              </div>
+            </mat-card-actions>
+          </mat-card>
+        </div> -->
       <div *ngFor="let product of products" class="col-span-12 md:col-span-6 xl:col-span-4">
         <mat-card class="ll-product">
           <img

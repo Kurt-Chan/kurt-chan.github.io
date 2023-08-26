@@ -34,7 +34,9 @@
               <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
             </div>
             <div class="flex-1 text-center">
-              <a [routerLink]="['/products', product.id]" mat-flat-button class="px-7 bg-warn">Product Details</a>
+              <a [routerLink]="['/products', product.id]" mat-flat-button class="px-7 bg-accent text-white"
+                >Product Details <mat-icon>keyboard_arrow_right</mat-icon></a
+              >
             </div>
           </mat-card-actions>
         </mat-card>

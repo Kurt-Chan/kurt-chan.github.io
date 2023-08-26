@@ -1,5 +1,5 @@
-<!-- <ll-product-hero></ll-product-hero> -->
-<div class="ll-search mt-32 pb-6">
+<ll-product-hero></ll-product-hero>
+<div class="ll-search mt-5 pb-6">
   <div class="container">
     <div class="border overflow-hidden sm:rounded-md p-5">
       <div class="mb-3">
@@ -22,8 +22,8 @@
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
             [(ngModel)]="prodName"
           /> -->
-          <button class="bg-primary w-24 rounded-r-md">
-            <mat-icon class="leading-8">search</mat-icon>
+          <button class="bg-accent w-24 rounded-r-md">
+            <mat-icon class="leading-8 text-white">search</mat-icon>
           </button>
         </div>
       </div>
@@ -59,7 +59,7 @@
             </select>
           </div>
           <div class="col-span-6">
-            <button mat-flat-button color="accent" (click)="applyFilter()">Apply filter</button>
+            <button mat-flat-button class="bg-accent text-white" (click)="applyFilter()">Apply filter</button>
             <button mat-flat-button (click)="clearFilter()" (click)="advanceSearchExpanded = !advanceSearchExpanded">
               Clear filter
             </button>
@@ -108,8 +108,8 @@
               <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
             </div>
             <div class="flex-1 text-center">
-              <a [routerLink]="['/products', product.id]" mat-raised-button color="warn" class="px-4"
-                >Product Details</a
+              <a [routerLink]="['/products', product.id]" mat-flat-button class="px-7 bg-accent text-white"
+                >Product Details <mat-icon>keyboard_arrow_right</mat-icon></a
               >
             </div>
           </mat-card-actions>
@@ -162,8 +162,8 @@
               <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
             </div>
             <div class="flex-1 text-center">
-              <a [routerLink]="['/products', product.id]" mat-raised-button color="warn" class="px-4"
-                >Product Details</a
+              <a [routerLink]="['/products', product.id]" mat-flat-button class="px-7 bg-accent text-white"
+                >Product Details <mat-icon>keyboard_arrow_right</mat-icon></a
               >
             </div>
           </mat-card-actions>

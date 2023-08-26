@@ -6,9 +6,14 @@ export interface Menu {
 
 export const menuList: Menu[] = [
   {
+    path: '',
+    name: 'Home',
+    icon: 'home'
+  },
+  {
     path: '/products',
     name: 'Products',
-    icon: 'shop'
+    icon: 'shop_two'
   },
   // {
   //   path: '/about',
@@ -25,10 +30,6 @@ export const menuList: Menu[] = [
     name: 'My Cart',
     icon: 'shopping_cart'
   }
-  // {
-  //   path: '/dashboard',
-  //   name: 'Dashboard'
-  // },
   // {
   //   path: '/doc',
   //   name: 'Doc'

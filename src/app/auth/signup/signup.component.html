@@ -7,7 +7,7 @@
     <div class="login__content p-4 sm:p-8 flex flex-col justify-center bg-accent">
       <div class="login w-full max-w-xl rounded-md mx-auto border p-4 sm:p-8 xl:p-20">
         <h1 class="text-2xl font-bold">Checkout Form</h1>
-        <form class="flex flex-wrap">
+        <form class="flex flex-wrap" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
           <div class="mb-4 mt-2">
             <label class="block text-gray-700 text-sm font-semibold mb-2" for="email"> First Name </label>
             <input
@@ -29,6 +29,7 @@
               id="email"
               type="text"
               placeholder="Enter First Name"
+              formControlName="firstName"
             />
           </div>
           <div class="mb-4 mt-2">
@@ -52,6 +53,7 @@
               id="password"
               type="text"
               placeholder="Enter Last Name"
+              formControlName="lastName"
             />
           </div>
           <div class="mb-4 mt-1">
@@ -76,6 +78,7 @@
               id="password2"
               type="text"
               placeholder="Enter Email Address"
+              formControlName="emailAddress"
             />
           </div>
           <div class="mb-4 mt-1">
@@ -99,6 +102,7 @@
               id="password2"
               type="text"
               placeholder="Enter Contact Number"
+              formControlName="contact"
             />
           </div>
           <div class="mb-4 mt-1">
@@ -120,9 +124,10 @@
                 h-10
                 mr-4
               "
+              formControlName="country"
             >
-              <option *ngFor="let city of City" [ngValue]="city">
-                {{ city }}
+              <option *ngFor="let country of Country" [ngValue]="country">
+                {{ country }}
               </option>
             </select>
           </div>
@@ -149,6 +154,7 @@
               id="password2"
               type="text"
               placeholder="Enter City"
+              formControlName="city"
             />
           </div>
           <div class="mb-4 mt-1">
@@ -173,6 +179,7 @@
               id="password2"
               type="text"
               placeholder="Enter address"
+              formControlName="homeAddress"
             />
           </div>
           <div class="mb-4 mt-1">
@@ -196,6 +203,7 @@
               id="password2"
               type="text"
               placeholder="Enter Zip Code"
+              formControlName="zipCode"
             />
           </div>
           <div class="flex flex-row">
@@ -221,14 +229,15 @@
                 id="password2"
                 type="text"
                 placeholder="5105105105105100"
+                formControlName="creditCard"
               />
             </div>
             <div class="flex items-center">
               <input
-                id="remember_me"
-                name="remember_me"
                 type="radio"
                 class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border rounded"
+                value="MasterCard"
+                formControlName="creditCardType"
               />
               <img
                 src="./../../../assets/images/58482354cef1014c0b5e49c0.png"
@@ -238,10 +247,10 @@
               <label for="remember_me" class="ml-2 block text-sm text-gray-900 mr-4"> MasterCard </label>
 
               <input
-                id=""
-                name="MasterCard"
                 type="radio"
                 class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border rounded"
+                value="Visa"
+                formControlName="creditCardType"
               />
               <img
                 src="./../../../assets/images/Visa-Card-Logo-PNG-Isolated-Transparent-HD-Photo.png"
@@ -277,7 +286,8 @@
                 focus:shadow-outline
                 h-10
               "
-              type="button"
+              type="submit"
+              [disabled]="!checkoutForm.valid"
             >
               Place order
             </button>

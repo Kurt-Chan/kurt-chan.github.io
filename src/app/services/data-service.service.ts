@@ -29,6 +29,11 @@ export class DataServiceService {
     return this.products;
   }
 
+  searchByCategory(category: any) {
+    this.products = productsDB.FakeProducts.filter(product => product.category.includes(category));
+    return this.products;
+  }
+
   addToCart(product: any) {
     this.cart.push(product);
     let itemCart = JSON.stringify(this.cart);

@@ -12,7 +12,7 @@
         <div class="mt-3 flex">
           <input
             type="text"
-            placeholder="I am looking for ..."
+            placeholder="Search product name"
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
             (input)="onSearchChange($event.target.value)"
           />
@@ -22,49 +22,18 @@
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
             [(ngModel)]="prodName"
           /> -->
-          <button class="bg-primary w-24 rounded-r-md" (click)="searchProducts()">
+          <button class="bg-primary w-24 rounded-r-md">
             <mat-icon class="leading-8">search</mat-icon>
           </button>
         </div>
       </div>
       <mat-expansion-panel [expanded]="advanceSearchExpanded">
         <div class="grid grid-cols-6 gap-6 mt-4">
-          <div class="col-span-6 sm:col-span-3">
-            <input
-              type="text"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
-              placeholder="Start price"
-            />
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <input
-              type="text"
-              class="
-                mt-1
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                block
-                w-full
-                shadow-sm
-                sm:text-sm
-                border-gray-300
-                rounded-md
-              "
-              placeholder="End price"
-            />
-          </div>
+          <h5>Category</h5>
           <div class="col-span-6 sm:col-span-3">
             <select
+              #category
+              (change)="onSelected(category.value)"
               name="categories"
               class="
                 mt-1
@@ -82,41 +51,18 @@
                 sm:text-sm
               "
             >
-              <option>Men's Clothing</option>
-              <option>Women's Clothing</option>
-              <option>Jewelery</option>
-              <option>Electronics</option>
-            </select>
-          </div>
-          <div class="col-span-6 sm:col-span-3">
-            <select
-              name="rating"
-              class="
-                mt-1
-                block
-                w-full
-                py-2
-                px-3
-                border border-gray-300
-                bg-white
-                rounded-md
-                shadow-sm
-                focus:outline-none
-                focus:ring-indigo-500
-                focus:border-indigo-500
-                sm:text-sm
-              "
-            >
-              <option>Rating</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
-              <option>5</option>
+              <option default>Pick a Category</option>
+              <option value="Men's Clothing">Men's Clothing</option>
+              <option value="Women's Clothing">Women's Clothing</option>
+              <option value="Jewelery">Jewelery</option>
+              <option value="Electronics">Electronics</option>
             </select>
           </div>
           <div class="col-span-6">
-            <button mat-flat-button color="accent">Apply filter</button>
+            <button mat-flat-button color="accent" (click)="applyFilter()">Apply filter</button>
+            <button mat-flat-button (click)="clearFilter()" (click)="advanceSearchExpanded = !advanceSearchExpanded">
+              Clear filter
+            </button>
           </div>
         </div>
       </mat-expansion-panel>
@@ -124,11 +70,12 @@
   </div>
 </div>
 
+<!--  FILTERED PRODUCTS -->
 <div class="ll-products-area mb-24" *ngIf="filteredProducts.length != 0">
   <div class="container">
-    <h2 class="ll-section-head__heaidng text-center mb-5">ALL PRODUCTS</h2>
+    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory === ''">ALL PRODUCTS</h2>
+    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory !== ''">{{ selectedCategory }}</h2>
     <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
-      <!--  FILTERED PRODUCTS -->
       <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">
         <mat-card class="ll-product">
           <img
@@ -178,45 +125,11 @@
   </div>
 </div>
 
+<!--  ALL PRODUCTS -->
 <div class="ll-products-area mb-24" *ngIf="filteredProducts.length == 0">
   <div class="container">
     <h2 class="ll-section-head__heaidng text-center mb-5">ALL PRODUCTS</h2>
     <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
-      <!--  FILTERED PRODUCTS -->
-      <!-- <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">
-          <mat-card class="ll-product">
-            <img
-              mat-card-image
-              [src]="product.image"
-              alt="{{ product.title }}"
-              style="width: 50%; margin: 10px 60px 15px"
-            />
-            <mat-card-content class="flex">
-              <div class="flex-grow pl-3">
-                <h4 class="ll-product__creator">
-                  {{ product.category }}
-                </h4>
-                <h2 class="ll-product__name">
-                  <a [routerLink]="['/products', product.id]">{{ product.title }}</a>
-                </h2>
-                <div class="flex justify-between mt-2">
-                  <div class="ll-product__price text-accent font-bold">${{ product.price }}</div>
-                  <div class="ll-product__price-label">{{ product.rating.count }} sold</div>
-                </div>
-              </div>
-            </mat-card-content>
-            <mat-card-actions class="ll-product__action flex justify-between">
-              <div class="flex-1 text-center flex items-center justify-center">
-                <mat-icon color="warn">star</mat-icon> {{ product.rating.rate }}/5
-              </div>
-              <div class="flex-1 text-center">
-                <a [routerLink]="['/products', product.id]" mat-raised-button color="warn" class="px-4"
-                  >Product Details</a
-                >
-              </div>
-            </mat-card-actions>
-          </mat-card>
-        </div> -->
       <div *ngFor="let product of products" class="col-span-12 md:col-span-6 xl:col-span-4">
         <mat-card class="ll-product">
           <img

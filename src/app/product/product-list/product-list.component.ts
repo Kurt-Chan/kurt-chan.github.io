@@ -15,6 +15,8 @@ export class ProductListComponent implements OnInit {
   filteredProducts: any[] = [];
   products = [];
 
+  selectedCategory = '';
+
   constructor(private dataService: DataServiceService) {}
 
   ngOnInit(): void {
@@ -32,13 +34,21 @@ export class ProductListComponent implements OnInit {
       this.filteredProducts = [];
     }
   }
+  onSelected(category: string): void {
+    console.log(category);
+    this.selectedCategory = category;
+  }
 
-  searchProducts() {
-    if (this.prodName !== '') {
-      this.filteredProducts = this.dataService.searchProduct(this.prodName);
+  applyFilter() {
+    if (this.selectedCategory !== '') {
+      this.filteredProducts = this.dataService.searchByCategory(this.selectedCategory);
       console.log(this.filteredProducts);
     } else {
       this.filteredProducts = [];
     }
+  }
+
+  clearFilter() {
+    this.filteredProducts = [];
   }
 }

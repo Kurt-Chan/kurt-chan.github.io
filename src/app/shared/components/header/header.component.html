@@ -1,7 +1,7 @@
 <header class="ll_header" [class.top-fixed]="topFixed" [ngClass]="{ 'bg-gray-50 shadow': topFixed && isScrolled }">
   <div class="container">
     <div class="flex items-center">
-      <div class="flex items-center">
+      <div class="flex items-center" matBadge="{{ cartItems.length }}" matBadgeOverlap="false">
         <a class="logo" [routerLink]="['']"><img src="assets/images/logo.png" alt="Logo" /></a>
         <ul class="flex item-center ml-5" *ngIf="!isLessThenLargeDevice && menuList && menuList.length">
           <li *ngFor="let menu of menuList">

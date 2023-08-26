@@ -10,16 +10,16 @@ export const menuList: Menu[] = [
     name: 'Products',
     icon: 'shop'
   },
-  {
-    path: '/about',
-    name: 'About',
-    icon: 'person'
-  },
-  {
-    path: '/contact',
-    name: 'Contact',
-    icon: 'contact_mail'
-  },
+  // {
+  //   path: '/about',
+  //   name: 'About',
+  //   icon: 'person'
+  // },
+  // {
+  //   path: '/contact',
+  //   name: 'Contact',
+  //   icon: 'contact_mail'
+  // },
   {
     path: '/dashboard',
     name: 'My Cart',

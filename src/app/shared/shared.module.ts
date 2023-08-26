@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatListModule } from '@angular/material/list';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { HttpClientModule } from '@angular/common/http';
+import { MatBadgeModule } from '@angular/material/badge';
 
 const commonModules = [
   HttpClientModule,
@@ -28,8 +29,23 @@ const commonModules = [
 ];
 
 @NgModule({
-  declarations: [HeaderComponent, FooterComponent, FeatureComponent, BaseLayoutComponent, LoaderComponent, SidenavComponent],
-  imports: [CommonModule, RouterModule, ...commonModules],
-  exports: [HeaderComponent, FooterComponent, BaseLayoutComponent, FeatureComponent, LoaderComponent, SidenavComponent, ...commonModules]
+  declarations: [
+    HeaderComponent,
+    FooterComponent,
+    FeatureComponent,
+    BaseLayoutComponent,
+    LoaderComponent,
+    SidenavComponent
+  ],
+  imports: [CommonModule, RouterModule, ...commonModules, MatBadgeModule],
+  exports: [
+    HeaderComponent,
+    FooterComponent,
+    BaseLayoutComponent,
+    FeatureComponent,
+    LoaderComponent,
+    SidenavComponent,
+    ...commonModules
+  ]
 })
 export class SharedModule {}

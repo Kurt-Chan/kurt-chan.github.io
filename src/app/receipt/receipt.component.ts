@@ -7,8 +7,8 @@ import { DataServiceService } from '../services/data-service.service';
   styleUrls: ['./receipt.component.scss']
 })
 export class ReceiptComponent implements OnInit {
-  user: any[] = [];
-  cart: any[] = [];
+  user = [];
+  cart = [];
 
   constructor(private dataService: DataServiceService) {}
 
@@ -21,6 +21,21 @@ export class ReceiptComponent implements OnInit {
     console.log('User information: ', this.user);
     console.log('Cart information: ', this.cart);
 
-    window.print();
+    setTimeout(() => {
+      window.print();
+    }, 1000);
+  }
+
+  calculateTotal(): number {
+    let total = 0;
+
+    if (this.cart != null) {
+      for (const order of this.cart) {
+        total += order.totalPrice;
+      }
+      return total;
+    }
+
+    return 0;
   }
 }

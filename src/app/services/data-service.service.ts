@@ -89,7 +89,7 @@ export class DataServiceService {
     let cart = JSON.parse(localStorage.getItem('Cart'));
 
     return {
-      User: details,
+      User: [details],
       Cart: cart
     };
   }

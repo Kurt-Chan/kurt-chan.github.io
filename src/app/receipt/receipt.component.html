@@ -7,21 +7,21 @@
       </td>
     </tr>
   </thead>
-  <tbody>
+  <tbody *ngFor="let user of user">
     <tr>
       <td colspan="3">
         <h1>User Information</h1>
       </td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-2">
               <h4>Name:</h4>
             </div>
             <div class="mt-2 mr-8">
-              <label class="text-xl font-medium">Test Name</label>
+              <label class="text-xl font-medium">{{ user.firstName }} {{ user.lastName }} </label>
             </div>
           </div>
         </div>
@@ -33,7 +33,7 @@
               <h4>Email:</h4>
             </div>
             <div class="mt-2 mr-8">
-              <label class="text-xl font-medium">Email@test</label>
+              <label class="text-xl font-medium">{{ user.emailAddress }}</label>
             </div>
           </div>
         </div>
@@ -45,21 +45,21 @@
               <h4>Contact:</h4>
             </div>
             <div class="mt-2">
-              <label class="text-xl font-medium">019238103</label>
+              <label class="text-xl font-medium">{{ user.contact }}</label>
             </div>
           </div>
         </div>
       </td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
               <h4>Country:</h4>
             </div>
             <div class="mt-1">
-              <label class="text-xl font-medium">USA</label>
+              <label class="text-xl font-medium">{{ user.country }}</label>
             </div>
           </div>
         </div>
@@ -71,7 +71,7 @@
               <h4>City:</h4>
             </div>
             <div class="mt-1">
-              <label class="text-xl font-medium">Moscow</label>
+              <label class="text-xl font-medium">{{ user.city }}</label>
             </div>
           </div>
         </div>
@@ -83,21 +83,21 @@
               <h4>Address:</h4>
             </div>
             <div class="mt-1">
-              <label class="text-xl font-medium">#12 Apple Streat testing</label>
+              <label class="text-xl font-medium">{{ user.homeAddress }}</label>
             </div>
           </div>
         </div>
       </td>
     </tr>
     <tr>
-      <td>
+      <td colspan="2">
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
               <h4>Zip Code:</h4>
             </div>
             <div class="mt-1">
-              <label class="text-xl font-medium">USA</label>
+              <label class="text-xl font-medium">{{ user.zipCode }}</label>
             </div>
           </div>
         </div>
@@ -109,7 +109,7 @@
               <h4>Card:</h4>
             </div>
             <div class="mt-1 mr-2">
-              <label class="text-xl font-medium">Moscow</label>
+              <label class="text-xl font-medium">{{ user.creditCardType }}</label>
             </div>
           </div>
         </div>
@@ -118,10 +118,10 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mr-2">
-              <h4>Card Number:</h4>
+              <h4>Number:</h4>
             </div>
             <div class="mt-1">
-              <label class="text-xl font-medium">#12 Apple Streat testing</label>
+              <label class="text-xl font-medium">{{ user.creditCard }}</label>
             </div>
           </div>
         </div>
@@ -144,7 +144,7 @@
     <tr>
       <td>
         <!-- <div class="header-space">&nbsp;</div> -->
-        Product ID
+        ID
       </td>
       <td>Name</td>
       <td>Unit Price</td>
@@ -153,12 +153,12 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
+    <tr *ngFor="let item of cart">
       <td>
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-8">
-              <h4>Name:</h4>
+              <h4>{{ item.id }}</h4>
             </div>
           </div>
         </div>
@@ -167,7 +167,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-8">
-              <h4>Email:</h4>
+              <h4>{{ item.title }}</h4>
             </div>
           </div>
         </div>
@@ -176,7 +176,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-8">
-              <h4>Contact:</h4>
+              <h4>{{ item.price }}</h4>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-8">
-              <h4>Contact:</h4>
+              <h4>{{ item.quantity }}</h4>
             </div>
           </div>
         </div>
@@ -194,7 +194,7 @@
         <div class="content">
           <div class="flex flex-row">
             <div class="mt-2 mr-8">
-              <h4>Contact:</h4>
+              <h4>{{ item.totalPrice | number: '1.2-2' }}</h4>
             </div>
           </div>
         </div>
@@ -206,8 +206,7 @@
         <h3>TOTAL:</h3>
       </td>
       <td>
-        <!-- <h3>${{ calculateTotal() | number: '1.2-2' }}</h3> -->
-        <h3>$999.999</h3>
+        <h3>${{ calculateTotal() | number: '1.2-2' }}</h3>
       </td>
     </tr>
   </tbody>

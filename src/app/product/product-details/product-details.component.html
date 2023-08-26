@@ -101,9 +101,22 @@
               placeholder="Enter quantity"
               class="py-1 text-sm mb-5 font-light"
             />
-            <button mat-flat-button class="py-3 px-20 text-xl mb-5 font-bold" color="accent">Buy now</button>
-            <button mat-stroked-button class="py-3 px-20 text-lg font-bold text-gray-700" (click)="addToCart()">
+            <button
+              mat-flat-button
+              class="py-3 px-20 text-xl mb-5 font-bold text-white bg-accent"
+              (click)="addToCart()"
+            >
               Add to cart
+              <mat-icon class="ml-2">add_shopping_cart</mat-icon>
+            </button>
+            <button
+              mat-stroke-button
+              class="py-3 px-20 text-md font-bold"
+              [routerLink]="['/products']"
+              routerLinkActive="router-link-active"
+            >
+              Continue shopping
+              <mat-icon class="ml-2">shopping_basket</mat-icon>
             </button>
           </div>
         </div>

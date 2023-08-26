@@ -2,9 +2,9 @@
   <mat-sidenav-container class="kl-sidenav-container">
     <mat-sidenav #sidenav [opened]="false" [mode]="'over'" [fixedInViewport]="isLessThenLargeDevice">
       <div class="rounded-md border overflow-hidden w-72">
-        <div class="user text-center bg-primary py-10 px-5">
+        <div class="user text-center bg-accent py-10 px-5">
           <img class="ml-auto mr-auto" src="assets/images/avatar.png" alt="abraham lincoln" />
-          <h4 class="text-base text-white mt-3">Abraham Lincoln</h4>
+          <h4 class="text-base text-white mt-3">User</h4>
         </div>
         <mat-nav-list class="_sidenav">
           <a
@@ -37,7 +37,7 @@
             ><mat-icon class="mr-2">article</mat-icon> Orders</a
           > -->
           <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"
-            ><mat-icon class="mr-2">logout</mat-icon> Go to products</a
+            ><mat-icon class="mr-2">shopping_basket</mat-icon> Continue shopping</a
           >
         </mat-nav-list>
       </div>
@@ -75,7 +75,7 @@
             <div class="col-span-3 hidden xl:block">
               <div class="py-5 min-h-screen">
                 <div class="rounded-md border overflow-hidden h-full">
-                  <div class="user text-center bg-primary py-10 px-5">
+                  <div class="user text-center bg-accent py-10 px-5">
                     <img class="ml-auto mr-auto" src="assets/images/avatar.png" alt="abraham lincoln" />
                     <h4 class="text-white mt-3">User</h4>
                   </div>
@@ -110,7 +110,7 @@
                       ><mat-icon class="mr-2">article</mat-icon> Orders</a
                     > -->
                     <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"
-                      ><mat-icon class="mr-2">logout</mat-icon> Go to products</a
+                      ><mat-icon class="mr-2">shopping_basket</mat-icon> Continue shopping</a
                     >
                   </mat-nav-list>
                 </div>

@@ -95,7 +95,9 @@
             </div>
           </td> -->
           <td class="text-right">
-            <button (click)="deleteItem(order?.id)"><mat-icon>delete</mat-icon></button>
+            <button (click)="deleteItem(order?.id)">
+              <mat-icon class="text-red-500 rounded-md">delete</mat-icon>
+            </button>
             <!-- <button class="action_icon__btn" mat-icon-button [matMenuTriggerFor]="menu">
               <mat-icon>more_vert</mat-icon>
             </button>
@@ -111,7 +113,7 @@
             </mat-menu> -->
           </td>
         </tr>
-        <tr>
+        <tr class="bg-warn">
           <td colspan="2"></td>
           <td class="text-right">
             <h3>TOTAL:</h3>
@@ -119,22 +121,29 @@
           <td>
             <h3>${{ calculateTotal() | number: '1.2-2' }}</h3>
           </td>
+          <td></td>
         </tr>
         <tr>
           <td colspan="2"></td>
           <td class="text-right">
-            <button mat-stroked-button class="py-2 px-5 text-xl mb-5 font-bold" (click)="clearCart()">
-              <mat-icon>clear</mat-icon> Clear Cart
+            <button
+              mat-stroked-button
+              class="py-2 px-5 text-xl text-white mb-5 font-bold bg-accent"
+              (click)="clearCart()"
+            >
+              Empty Cart
+              <mat-icon class="ml-2">remove_shopping_cart</mat-icon>
             </button>
           </td>
           <td>
             <button
               mat-flat-button
-              class="py-2 px-5 text-xl mb-5 font-bold"
-              color="accent"
+              class="py-2 px-5 text-xl mb-5 font-bold text-white"
+              style="background-color: #467326"
               [routerLink]="['/auth/signup']"
             >
-              <mat-icon>check_circle</mat-icon> Checkout
+              Checkout
+              <mat-icon class="ml-2">check_circle</mat-icon>
             </button>
           </td>
         </tr>

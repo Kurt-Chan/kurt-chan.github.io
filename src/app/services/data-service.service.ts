@@ -79,4 +79,18 @@ export class DataServiceService {
     localStorage.removeItem('Cart');
     this.cart = [];
   }
+
+  saveCheckoutDetails(value: any) {
+    localStorage.setItem('Checkout Details', JSON.stringify(value));
+  }
+
+  getCheckoutDetails() {
+    let details = JSON.parse(localStorage.getItem('Checkout Details'));
+    let cart = JSON.parse(localStorage.getItem('Cart'));
+
+    return {
+      User: details,
+      Cart: cart
+    };
+  }
 }

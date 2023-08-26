@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { DataServiceService } from 'src/app/services/data-service.service';
 
 @Component({
   selector: 'll-signup',
@@ -51,7 +53,7 @@ export class SignupComponent implements OnInit {
     lastName: [{ type: 'required', message: 'Last Name is required.' }],
     emailAddress: [
       { type: 'required', message: 'Email Address is required!' },
-      { type: 'pattern', message: 'Please enter a valid email.' }
+      { type: 'email', message: 'Please enter a valid email.' }
     ],
 
     contact: [
@@ -71,7 +73,7 @@ export class SignupComponent implements OnInit {
     creditCardType: [{ type: 'required', message: 'Credit Card Type is required!' }]
   };
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private router: Router, private dataService: DataServiceService) {
     this.checkoutForm = this.fb.group({
       firstName: new FormControl('', Validators.required),
       lastName: new FormControl('', Validators.required),
@@ -81,12 +83,8 @@ export class SignupComponent implements OnInit {
       city: new FormControl('', Validators.required),
       homeAddress: new FormControl('', Validators.required),
       zipCode: new FormControl('', Validators.required),
-      creditCard: new FormControl('', Validators.required),
-      creditCardType: new FormControl('MasterCard', [
-        Validators.required,
-        Validators.minLength(11),
-        Validators.maxLength(11)
-      ])
+      creditCard: new FormControl('', [Validators.required, Validators.minLength(16), Validators.maxLength(16)]),
+      creditCardType: new FormControl('MasterCard', Validators.required)
     });
   }
 
@@ -94,5 +92,7 @@ export class SignupComponent implements OnInit {
 
   onSubmit(value: any) {
     console.log(value);
+    this.dataService.saveCheckoutDetails(value);
+    this.router.navigate(['receipt']);
   }
 }

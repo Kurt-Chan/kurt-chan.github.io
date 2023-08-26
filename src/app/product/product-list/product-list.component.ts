@@ -25,8 +25,6 @@ export class ProductListComponent implements OnInit {
   }
 
   onSearchChange(searchValue: string): void {
-    console.log(searchValue);
-
     if (searchValue !== '') {
       this.filteredProducts = this.dataService.searchProduct(searchValue);
       console.log(this.filteredProducts);

@@ -12,7 +12,7 @@ export const menuList: Menu[] = [
   },
   {
     path: '/products',
-    name: 'Products',
+    name: 'All Products',
     icon: 'shop_two'
   },
   // {

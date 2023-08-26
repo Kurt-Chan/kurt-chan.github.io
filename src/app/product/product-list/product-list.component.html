@@ -6,13 +6,13 @@
         <div class="flex justify-between flex-wrap">
           <h4>You deserve something! Find it here.</h4>
           <button (click)="advanceSearchExpanded = !advanceSearchExpanded" mat-button>
-            <mat-icon>tune</mat-icon> Advanced Search
+            <mat-icon>filter_list</mat-icon> Filter
           </button>
         </div>
         <div class="mt-3 flex">
           <input
             type="text"
-            placeholder="Search product name"
+            placeholder="Search product"
             class="flex-1 w-full sm:text-sm lg:text-xl border-gray-300 rounded-l-md py-3 px-6"
             (input)="onSearchChange($event.target.value)"
           />
@@ -76,7 +76,9 @@
     <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory === '' && searchProd === ''">
       ALL PRODUCTS
     </h2>
-    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory !== ''">{{ selectedCategory }}</h2>
+    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory !== ''">
+      Category: {{ selectedCategory }}
+    </h2>
     <h4 class="text-center mb-5" *ngIf="searchProd !== ''">Search: {{ searchProd }}</h4>
     <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
       <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">

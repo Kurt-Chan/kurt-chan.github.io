@@ -8,14 +8,7 @@
     <div class="login__content p-4 sm:p-8 flex flex-col justify-center bg-accent">
       <div class="login w-full max-w-xl rounded-md mx-auto border p-4 sm:p-8 xl:p-20">
         <!-- validation -->
-        <div class="validation-errors">
-          <!-- <ng-container *ngIf="checkoutForm.get('firstName').invalid && checkoutForm.get('firstName').touched">
-            <div *ngFor="let error of checkoutForm.get('firstName').errors | keyvalue" class="error-message">
-              <ion-icon name="information-circle-outline"></ion-icon>
-              {{ errorMessages[error.key] }}
-            </div>
-          </ng-container> -->
-        </div>
+        <div class="validation-errors"></div>
         <h1 class="text-2xl font-bold">Checkout Form</h1>
         <form class="flex flex-wrap" [formGroup]="checkoutForm" (ngSubmit)="onSubmit(checkoutForm.value)">
           <div class="mb-4 mt-2">

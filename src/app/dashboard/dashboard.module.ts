@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatBadgeModule } from '@angular/material/badge';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardLayoutComponent } from './dashboard-layout/dashboard-layout.component';
@@ -19,6 +20,6 @@ import { DashboardOrderComponent } from './dashboard-order/dashboard-order.compo
     DashboardProfileComponent,
     DashboardOrderComponent
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule, MatMenuModule, FormsModule]
+  imports: [CommonModule, DashboardRoutingModule, SharedModule, MatMenuModule, FormsModule, MatBadgeModule]
 })
 export class DashboardModule {}

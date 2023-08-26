@@ -58,11 +58,11 @@
               <mat-icon>menu</mat-icon>
             </button>
             <div class="items-center flex ml-auto">
-              <button mat-icon-button>
-                <mat-icon>notifications</mat-icon>
+              <button mat-icon-button [routerLink]="['/products']">
+                <mat-icon>shopping_basket</mat-icon>
               </button>
-              <button mat-icon-button>
-                <mat-icon>account_circle</mat-icon>
+              <button mat-icon-button [routerLink]="['']">
+                <mat-icon>home</mat-icon>
               </button>
             </div>
           </div>
@@ -85,7 +85,7 @@
                       routerLink="/dashboard"
                       [routerLinkActiveOptions]="{ exact: true }"
                       routerLinkActive="bg-gray-200"
-                      class="font-semibold text-gray-500 hover:text-primary"
+                      class="font-semibold text-gray-500 hover:text-black"
                       ><mat-icon class="mr-2">shopping_cart</mat-icon> My Cart</a
                     >
                     <!-- <a
@@ -109,7 +109,7 @@
                       class="font-semibold text-gray-500 hover:text-primary"
                       ><mat-icon class="mr-2">article</mat-icon> Orders</a
                     > -->
-                    <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-primary"
+                    <a (click)="onLogout()" mat-list-item class="font-semibold text-gray-500 hover:text-black"
                       ><mat-icon class="mr-2">shopping_basket</mat-icon> Continue shopping</a
                     >
                   </mat-nav-list>

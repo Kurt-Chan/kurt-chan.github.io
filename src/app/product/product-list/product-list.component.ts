@@ -16,6 +16,7 @@ export class ProductListComponent implements OnInit {
   products = [];
 
   selectedCategory = '';
+  searchProd = '';
 
   constructor(private dataService: DataServiceService) {}
 
@@ -28,6 +29,7 @@ export class ProductListComponent implements OnInit {
 
   onSearchChange(searchValue: string): void {
     if (searchValue !== '') {
+      this.searchProd = searchValue;
       this.filteredProducts = this.dataService.searchProduct(searchValue);
       console.log(this.filteredProducts);
     } else {
@@ -50,5 +52,7 @@ export class ProductListComponent implements OnInit {
 
   clearFilter() {
     this.filteredProducts = [];
+    this.searchProd = '';
+    this.selectedCategory = '';
   }
 }

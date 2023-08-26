@@ -197,7 +197,7 @@ export class productsDB {
     },
     {
       id: 6,
-      title: 'Solid Gold Petite Micropave ',
+      title: 'Solid Gold Petite Micropave Bracelet',
       price: 168,
       description:
         'Satisfaction Guaranteed. Return or exchange any order within 30 days.Designed and sold by Hafeez Center in the United States. Satisfaction Guaranteed. Return or exchange any order within 30 days.',

@@ -73,8 +73,11 @@
 <!--  FILTERED PRODUCTS -->
 <div class="ll-products-area mb-24" *ngIf="filteredProducts.length != 0">
   <div class="container">
-    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory === ''">ALL PRODUCTS</h2>
+    <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory === '' && searchProd === ''">
+      ALL PRODUCTS
+    </h2>
     <h2 class="ll-section-head__heaidng text-center mb-5" *ngIf="selectedCategory !== ''">{{ selectedCategory }}</h2>
+    <h4 class="text-center mb-5" *ngIf="searchProd !== ''">Search: {{ searchProd }}</h4>
     <div class="grid grid-cols-12 gap-6 xxl:gap-8" *ngIf="isLoaded">
       <div *ngFor="let product of filteredProducts" class="col-span-12 md:col-span-6 xl:col-span-4">
         <mat-card class="ll-product">

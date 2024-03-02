@@ -34,6 +34,7 @@ export class HeaderComponent implements OnInit {
 
     // checks if the user is logged in
     if (localStorage.getItem('AuthUser')) {
+      console.log('Auth user is present');
       this.authUser = true;
     }
   }

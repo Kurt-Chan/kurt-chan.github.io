@@ -22,7 +22,7 @@ const baseLayoutRouting: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: 'home'
+    redirectTo: ''
   }
 ];
 

@@ -15,20 +15,30 @@ export class HeaderComponent implements OnInit {
   menuList = [];
   isLessThenLargeDevice;
   cartItems = [];
+  authUser: boolean = false;
 
   constructor(private breakpointObserver: BreakpointObserver, private dataService: DataServiceService) {}
 
   ngOnInit(): void {
     this.menuList = staticMenuList;
+
+    // This is for mobile view
     this.breakpointObserver.observe(['(max-width: 1199px)']).subscribe(({ matches }) => {
       this.isLessThenLargeDevice = matches;
     });
 
+    // Setting an interval for the badge Cart
     setInterval(() => {
       this.cartItems = this.dataService.showCart();
     }, 500);
+
+    // checks if the user is logged in
+    if (localStorage.getItem('AuthUser')) {
+      this.authUser = true;
+    }
   }
 
+  // For mobile view
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
     this.isScrolled = window.pageYOffset > 15;

@@ -1,14 +1,42 @@
 <header class="ll_header" [class.top-fixed]="topFixed" [ngClass]="{ 'bg-gray-100 shadow': topFixed && isScrolled }">
   <div class="container">
     <div class="flex items-center">
-      <div *ngIf="cartItems != null">
+      <!-- if the user is not logged in -->
+      <div *ngIf="!authUser">
+        <div class="flex items-center">
+          <a class="logo" [routerLink]="['']"><img src="assets/images/logo.png" alt="Logo" /></a>
+          <ul class="flex item-center ml-5" *ngIf="!isLessThenLargeDevice && menuList && menuList.length">
+            <li>
+              <a
+                mat-button
+                [routerLink]="['/home']"
+                routerLinkActive="bg-accent text-white"
+                class="text-lg font-bold py-2 px-5"
+              >
+                <mat-icon>home</mat-icon> Home
+              </a>
+              <a
+                mat-button
+                [routerLink]="['/products']"
+                routerLinkActive="bg-accent text-white"
+                class="text-lg font-bold py-2 px-5"
+              >
+                <mat-icon>shop_two</mat-icon> Products
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!--if cart is not empty-->
+      <div *ngIf="cartItems != null && authUser">
         <div class="flex items-center" matBadge="{{ cartItems.length }}" matBadgeOverlap="false">
           <a class="logo" [routerLink]="['']"><img src="assets/images/logo.png" alt="Logo" /></a>
           <ul class="flex item-center ml-5" *ngIf="!isLessThenLargeDevice && menuList && menuList.length">
             <li *ngFor="let menu of menuList">
               <a
                 mat-button
-                [routerLink]="[menu.path]"
+                [routerLink]="['menu.path']"
                 routerLinkActive="bg-gray-300 text-black"
                 class="text-lg font-bold py-2 px-5"
               >
@@ -20,7 +48,8 @@
         </div>
       </div>
 
-      <div *ngIf="cartItems == null">
+      <!-- if cart is empty -->
+      <div *ngIf="cartItems == null && authUser">
         <div class="flex items-center">
           <a class="logo" [routerLink]="['']"><img src="assets/images/logo.png" alt="Logo" /></a>
           <ul class="flex item-center ml-5" *ngIf="!isLessThenLargeDevice && menuList && menuList.length">
@@ -46,15 +75,17 @@
       >
         <mat-icon>menu</mat-icon>
       </button>
-      <!-- <div class="hidden items-center md:flex ml-auto">
+      <div class="hidden items-center md:flex ml-auto">
         <a [routerLink]="['/auth/login']" mat-raised-button color="yellow" class="text-lg font-bold py-2 px-5">Login</a>
+        <!--
         <a
           [routerLink]="['/auth/signup']"
           mat-raised-button
           class="text-lg font-bold py-2 px-5 ml-2 bg-accent text-white"
           >Register</a
         >
-      </div> -->
+        -->
+      </div>
     </div>
   </div>
 </header>

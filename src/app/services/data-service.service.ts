@@ -93,4 +93,15 @@ export class DataServiceService {
       Cart: cart
     };
   }
+
+  login() {
+    localStorage.setItem('AuthUser', '1');
+    // localStorage.setItem('Email', email);
+    console.log('User logged in');
+  }
+
+  logout() {
+    localStorage.clear();
+    console.log('User logged out');
+  }
 }

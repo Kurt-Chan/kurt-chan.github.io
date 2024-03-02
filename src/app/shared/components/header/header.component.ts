@@ -2,6 +2,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import { menuList as staticMenuList } from '../../data/menus';
 import { DataServiceService } from 'src/app/services/data-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'll-header',
@@ -17,7 +18,11 @@ export class HeaderComponent implements OnInit {
   cartItems = [];
   authUser: boolean = false;
 
-  constructor(private breakpointObserver: BreakpointObserver, private dataService: DataServiceService) {}
+  constructor(
+    private router: Router,
+    private breakpointObserver: BreakpointObserver,
+    private dataService: DataServiceService
+  ) {}
 
   ngOnInit(): void {
     this.menuList = staticMenuList;
@@ -43,5 +48,11 @@ export class HeaderComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   checkScroll() {
     this.isScrolled = window.pageYOffset > 15;
+  }
+
+  logout() {
+    this.dataService.logout();
+    // this.router.navigate(['/home']);
+    window.location.reload();
   }
 }

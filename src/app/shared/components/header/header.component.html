@@ -36,7 +36,7 @@
             <li *ngFor="let menu of menuList">
               <a
                 mat-button
-                [routerLink]="['menu.path']"
+                [routerLink]="[menu.path]"
                 routerLinkActive="bg-gray-300 text-black"
                 class="text-lg font-bold py-2 px-5"
               >
@@ -76,7 +76,22 @@
         <mat-icon>menu</mat-icon>
       </button>
       <div class="hidden items-center md:flex ml-auto">
-        <a [routerLink]="['/auth/login']" mat-raised-button color="yellow" class="text-lg font-bold py-2 px-5">Login</a>
+        <a
+          *ngIf="!authUser"
+          [routerLink]="['/auth/login']"
+          mat-raised-button
+          color="yellow"
+          class="text-lg font-bold py-2 px-5"
+          >Login</a
+        >
+        <a
+          *ngIf="authUser"
+          mat-raised-button
+          color="yellow"
+          class="text-lg font-bold py-2 px-5 ml-2 bg-accent text-white"
+          (click)="logout()"
+          >Logout</a
+        >
         <!--
         <a
           [routerLink]="['/auth/signup']"

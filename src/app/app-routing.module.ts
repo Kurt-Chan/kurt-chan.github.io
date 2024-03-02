@@ -16,13 +16,13 @@ const baseLayoutRouting: Routes = [
     loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
   },
   {
-    path: '',
+    path: 'home',
     loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: ''
+    redirectTo: 'home'
   }
 ];
 
